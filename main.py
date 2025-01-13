@@ -1,3 +1,6 @@
+from random import randint, seed
+seed()
+
 def dropPiece(board: list, column: int, piece: int):
     for i, slot in enumerate(board[column]):
         if slot == 0:
@@ -161,6 +164,8 @@ def getBestMove(board: list):
             if board[i][-1] == 0:
                 besteval = currentEval
                 bestMove = i
+    if besteval == 0:
+        return randint(0, 6)
     return bestMove
 
     
